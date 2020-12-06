@@ -21,10 +21,13 @@ public:
 	void log() {
 		ImGui::Text("[");
 		ImGui::SameLine();
-		if(this->get_is_impostor())
+#ifdef DEBUG
+		if (this->get_is_impostor())
 			ImGui::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), this->player_name.c_str());
 		else
 			ImGui::TextColored(ImVec4(1.f, 1.f, 1.f, 1.f), this->player_name.c_str());
+#endif // DEBUG
+		ImGui::TextColored(ImVec4(0.f, 1.f, 1.f, 1.f), this->player_name.c_str());
 		ImGui::SameLine();
 		ImGui::Text("|");
 		ImGui::SameLine();
