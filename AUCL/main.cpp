@@ -7,7 +7,7 @@
 extern const LPCWSTR LOG_FILE = L"log.txt";
 
 int initialize() {
-#ifdef DEBUG
+#ifdef _DEBUG
 	new_console();
 #endif // DEBUG
 
