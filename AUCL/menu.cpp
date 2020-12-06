@@ -49,13 +49,15 @@ void menu::init() {
 bool init = false;
 void menu::render()
 {
-    if (!init)
+    if (!init) {
         init();
-	ImGui::Begin("AUCL - Among Us Chat Logger", 0, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
-	ImGui::BeginChild("console#scroll", ImVec2(490, 225), true);
-	for (unsigned i = logs.size(); i-- > 0; ) {
-		logs.at(i)->log();
-	}
+        init = true;
+    }
+    ImGui::Begin("AUCL - Among Us Chat Logger", 0, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
+    ImGui::BeginChild("console#scroll", ImVec2(490, 225), true);
+    for (unsigned i = logs.size(); i-- > 0; ) {
+	logs.at(i)->log();
+    }
     ImGui::EndChild();
     if (ImGui::Button("Save to File"))
     {
