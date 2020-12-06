@@ -5,5 +5,5 @@
 namespace menu {
 	void render();
 	void init();
-	inline std::vector<ChatLog*> logs;
+	inline std::vector<event_log*> logs;
 }
