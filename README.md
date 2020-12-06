@@ -6,6 +6,9 @@ I started working on this project after I've read [this](https://www.reddit.com/
 I wanted to help him because I think he really has good intentions and I needed a new project to work on. (and I really hope this will be just used with good intentions.)
 I gladly appreciate any pr or other type of help to make this project and the dream of this reddit user possible. =)
 
+# info
+this is not intended to be a cheat. You can only see who the impostor is when build in debug. 
+
 # compilation
 compile in x86 mode
 
