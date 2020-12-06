@@ -17,7 +17,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     }
     case DLL_PROCESS_DETACH: {
         hooks::release();
+#ifdef DEBUG
         close_console();
+#endif // DEBUG
         FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(hModule), 0);
         break;
     }

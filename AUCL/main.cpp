@@ -7,9 +7,9 @@
 extern const LPCWSTR LOG_FILE = L"log.txt";
 
 int initialize() {
+#ifdef DEBUG
 	new_console();
-
-	//AmongUsClient 0x0143BE9C
+#endif // DEBUG
 
 	if (!hooks::initialize()) {
 		std::cout << "Couldn't initialize hooks!\n";
