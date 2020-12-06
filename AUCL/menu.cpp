@@ -3,7 +3,9 @@
 #include "imgui/imgui_impl_win32.h"
 #include "imgui/imgui_impl_dx11.h"
 
+bool menu_init = false;
 void menu::init() {
+    menu_init = true;
     ImVec4* colors = ImGui::GetStyle().Colors;
     colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 0.95f);
     colors[ImGuiCol_TextDisabled] = ImVec4(0.50f, 0.50f, 0.50f, 1.00f);
@@ -46,13 +48,11 @@ void menu::init() {
     colors[ImGuiCol_DragDropTarget] = ImVec4(0.58f, 0.58f, 0.58f, 0.90f);
 }
 
-bool init = false;
 void menu::render()
 {
-    if (!init) {
+    if (!menu_init)
         init();
-        init = true;
-    }
+        
     ImGui::Begin("AUCL - Among Us Chat Logger", 0, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
     ImGui::BeginChild("console#scroll", ImVec2(490, 225), true);
     for (unsigned i = logs.size(); i-- > 0; ) {
