@@ -75,7 +75,7 @@ bool hooks::initialize()
 	if (MH_Initialize() != MH_OK)
 		return false;
 
-	if (MH_CreateHook((LPVOID)get_absolute_address(0x10EE930), &ChatController_AddChat::hook, reinterpret_cast<void**>(&oChatController_AddChat)) != MH_OK)
+	if (MH_CreateHook((LPVOID)get_absolute_address(0x8C0B30), &ChatController_AddChat::hook, reinterpret_cast<void**>(&oChatController_AddChat)) != MH_OK)
 		throw std::runtime_error("failed to initialize ChatController_AddChat. (outdated offset?)");
 
 	if (MH_CreateHook((LPVOID)fnIDXGISwapChainPresent, &Present::hook, reinterpret_cast<void**>(&oPresent)) != MH_OK)
