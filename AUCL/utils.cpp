@@ -1,7 +1,7 @@
 #include "utils.h"
 #include <windows.h>
 #include <time.h>
-
+FILE* f;
 // Log file location
 extern const LPCWSTR LOG_FILE;
 // Helper function to get the module base address
@@ -30,11 +30,11 @@ void log_write(std::string text) {
 // Helper function to open a new console window and redirect stdout there
 void new_console() {
 	AllocConsole();
-	freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+	freopen_s(&f, "CONOUT$", "w", stdout);
 }
 
 void close_console() {
-	fclose(reinterpret_cast<FILE*>(stdout));
+	fclose(f);
 	FreeConsole();
 }
 
