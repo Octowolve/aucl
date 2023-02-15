@@ -151,7 +151,7 @@ void __cdecl hooks::ChatController_AddChat::hook(void* __this, BHHCHKFKPOE_o* so
 		get_color_string(player_data->fields.LLKIJGKPCPC, color_name, sizeof(color_name));
 		menu::logs.push_back(new event_log(player_data->fields.MDHNHLLFGIH->to_utf8(), player_data->fields.DFEMAKIPLDO, color_name, chat_event, chat_text->to_utf8()));
 	}
-	oChatController_AddChat(__this, source_player, chat_text);
+	return oChatController_AddChat(__this, source_player, chat_text); //Always Returning Original Chat Controller
 }
 
 HRESULT __stdcall hooks::Present::hook(IDXGISwapChain* pChain, UINT SyncInterval, UINT Flags)
